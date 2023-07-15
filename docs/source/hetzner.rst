@@ -59,7 +59,7 @@ The page should look something like that:
 
 (Note: If you set your country / location to an English speaking country, the page should be in English for you. If not, use Google Translate!)
 
-Scroll down the page until you see **Storage Boxes BX**. Click on the text. Now four options should pop up, find **Storage Box BX11**, which costs **3,84 €**. Now press the Order button (the red button below the price).
+Scroll down the page until you see **Storage Boxes BX**. Click on the text. Now four options should pop up, find **Storage Box BX11**, which costs **3,84 €**. Now press the "Order" button (the red button below the price).
 
 Now you have the option, to choose a location. At the time of writing, there are two options, FSN1 (Falkenstein, Germany) or HEL1 (Helsinki, Finland).
 
@@ -67,7 +67,7 @@ Now you have the option, to choose a location. At the time of writing, there are
 * For those in Asia or Africa, Hetzner doesn't have datacenters there yet. It is still recommended, that you choose the location closest to you. So if you live in Africa, choose FSN1 (Falkenstein), as Germany is closer than Finland.
 * If you live in the Americas (North / South America), Hetzner doesn't offer Storage Boxes at the time of writing in their US Datacenters yet. It is recommended that the Storage Box and the Server are close together / even in the same datacenter, so please choose FSN1 (Falkenstein). You might face higher loading times to your server because of that. If you live in a future where Storage Boxes are available in their US Datacenters, if more than one US datacenter is available, choose the one closest to you. If not, choose the one that is available.
 
-Please remember the datacenter you chose. You will need it in future steps! Now press the "Add to cart"-Button (the red button at the end of the datacenter options)
+Please remember the datacenter you chose. You will need it in future steps! Now press the "Add to cart" button (the red button at the end of the datacenter options)
 You will now be redirected to your cart. There press the "Proceed to checkout"-button. Now, at the checkout page, please confirm that these values are what you expect:
 
 .. image:: ./images/robot-order-checkout.png
@@ -79,24 +79,98 @@ Once you confirmed, scroll down to the bottom of the page. Agree to the Terms an
 You will recieve an E-Mail once the setup is done. Meanwhile continue below.
 
 Setup a SSH Client
-=======================
+==================
 This differs on every operating system.
 
 Linux:
 
 * **If you are tech-savvy enough to install Linux, I think you can handle setting up NextCloud. Why are you using this guide?**
-* The relevent software is already installed. No need to do anything!
+* The relevent software is already installed. No need to do install anything!
+* Open a Terminal Window.
+* **Leave the Terminal open, we're going to need it soon!**
 
 MacOS:
 
-* The relevant software should already be installed. No need to do anything!
+* The relevant software should already be installed. No need to install anything!
+* Open a Terminal Window.
+* **Leave the Terminal open, we're going to need it soon!**
 
 Windows:
 
-* Open the `Microsoft Store Page <ms-windows-store://pdp?productid=XPFNZKSKLBP7RJ&mode=mini>`_ and install PuTTY there
-* 
+* Open the `Microsoft Store Page <ms-windows-store://pdp?productid=XPFNZKSKLBP7RJ&mode=mini>`_ and install PuTTY there.
+* Open the PuTTY application.
+* **Leave PuTTY and the file open, we're going to need it soon!**
 
+Now you can continue!
 
+Create a Server
+===============
+1. Open the `Hetzner Cloud Portal <https://console.hetzner.cloud/projects>`_
+2. Create a new project and name it anything you like. (Although it is recommended you name it something that you can easily recognize.)
+3. Press the "+ Create Server" button
+4. Choose the location in which you created your Storage Box. (If you created it in "FSN1 (Falkenstein)", choose "Falkenstein (eu-central)", if you created it in "HEL1 (Helsinki)", choose "Helsinki (eu-central)", if you are from the future and created it in a US location, choose the Datacenter in which you created it in)
+5. Scroll down to "Image" and choose "Ubuntu (22.04)"
+6. Scroll down to "Type".
+7. Select "Shared vCPU"
+8. Select "x86 (Intel/AMD)
+9. Scroll down and select "**CPX21**"
+10. Scroll down to "Networking" and make sure IPv4 and IPv6 are ticked.
+11. Scroll all the way to the end and change to something you'll easily recognize. You could theoretically use ``<Your first name>-nextcloud``, so for someone named John Doe, they would name it ``john-nextcloud``.
+12. Press the red "Order" button on the right side.
+
+Now navigate to the "Firewalls"-tab on the left side.
+
+13. Press the red "Create firewall" button.
+14. Press the "Add rule" button in the **Inbound Traffic** section. (The Inbound Traffic section is the one which already has two rules. **Don't delete them!**)
+15. Click the "Port" box and select "**80 HTTP**
+16. Press the "Add rule" button in the **Inbound Traffic** section again.
+17. Click the "Port" box and select "**443 HTTPS**"
+18. Scroll down to the "Apply to" section.
+19. Click "Choose Resource", click on Server and from the list on the right side choose the server you just created. (There should only be one)
+20. Press the red "Apply" button.
+21. Press the red "Create Firewall" button.
+
+Now you can continue with the next step!
+
+Setup Nextcloud
+===============
+
+Check your email inbox. You will have received an E-Mail from Hetzner about your server.
+
+.. image:: ./images/hetzner-server-created.png
+   :width: 500px
+
+* In the E-Mail, the value to the left of "IPv4" is the "IPv4 Address" of your server.
+* The value to the left of "IPv6" is the "IPv6 Address" of your server.
+* The value next to "Password" is your "Password". You will need to change this once you login
+
+The following steps again differ from operating system to operating system:
+
+MacOS and Linux:
+
+1. Get back to your terminal window
+2. Type ``ssh root@<Server IP>``. (Replace "<Server IP>" with the IPv4 from the E-Mail you recieved!)
+3. It will ask you to confirm. Type ``yes`` and press Enter to continue.
+4. It will ask you for the servers password. Paste it in. **The password doesn't show up for security reasons. Do NOT paste it twice!**
+4. You are now prompted to change the password. **Change it to a password you can easily remember but is hard to guess, or use a password manager like `BitWarden <https://bitwarden.com/>`_**
+4. **You are now logged in on your server. Continue after the instructions for Windows!**
+
+Windows:
+
+1. Get back to your PuTTY window
+2. In the "Host Name (or IP address)" field, type in the IPv4 Address from your E-Mail
+3. In the text box below "Saved Sessions", type "nextcloud".
+4. Press the "Save" button
+5. Press the "Open" button at the very bottom of the window.
+6. In the "PuTTY Security Alert" window, press "Accept"
+7. The black window will now show: "login as:". Type ``root`` and press Enter
+8. Another line should've been added that says "root@<Server's IPv4>'s password". Copy the password from the email, return to the black window and press "Left Click" and then press Enter. **Your password will not appear in the black box for security purposes. Do NOT press "Left Click" twice!**
+9. A few lines will appear. The lowest one will say "Current Password:". Paste the password in again, it will not show again.
+10. Now "New password:" appears. **Type in a password you can easily remember but is hard to guess, or use a password manager like `BitWarden <https://bitwarden.com/>`_**. Now press Enter
+11. "Retype new password:" appears. Type the password in again.
+12. **You are now logged in on your server. Continue below!**
+
+Are you logged in? Then let's continue:
 
 
 
