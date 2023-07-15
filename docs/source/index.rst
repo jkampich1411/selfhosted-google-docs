@@ -1,13 +1,19 @@
-Welcome to Lumache's documentation!
+Selfhosted Google Docs Alternative
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**Welcome!**
+This guide explains how to install NextCloud and OpenOffice on different systems.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+First, you need to choose a path:
+
+You have three options. Two of them are pretty easy and non-tech-savvy people should be able to complete them easily.
+The third option I would personally not recommend for non-tech-savvy people, but is only moderately hard.
+
+1. Using a cloud provider (we will use Hetzner). (:doc:`hetzner`)
+2. Running on a Raspberry Pi with external storage. (:doc:`raspberrypi`)
+3. Running on old hardware with external storage (:doc:`custom`)
+
+Click the links next to the options to continue!
 
 .. note::
 
@@ -18,5 +24,6 @@ Contents
 
 .. toctree::
 
-   usage
-   api
+   hetzner
+   raspberrypi
+   custom
