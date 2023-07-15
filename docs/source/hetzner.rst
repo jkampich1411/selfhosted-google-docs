@@ -76,7 +76,7 @@ Once you confirmed, scroll down to the bottom of the page. Agree to the Terms an
 You will recieve an E-Mail once the setup is done. Meanwhile continue below.
 
 Setup a SSH Client
-==================
+------------------
 This differs on every operating system.
 
 Linux:
@@ -101,7 +101,7 @@ Windows:
 Now you can continue!
 
 Create a Server
-===============
+---------------
 1. Open the `Hetzner Cloud Portal <https://console.hetzner.cloud/projects>`_
 2. Create a new project and name it anything you like. (Although it is recommended you name it something that you can easily recognize.)
 3. Press the "+ Create Server" button
@@ -130,7 +130,7 @@ Now navigate to the "Firewalls"-tab on the left side.
 Now you can continue with the next step!
 
 Setup Afraid FreeDNS
-====================
+--------------------
 Check your email inbox. You will have received an E-Mail from Hetzner about your server.
 
 .. image:: ./images/hetzner-server-created.png
@@ -152,7 +152,7 @@ Check your email inbox. You will have received an E-Mail from Hetzner about your
 10. Copy the link that gets shown into a Notepad window or write it down on a piece of paper. **You'll need it later!**
 
 Setup Nextcloud
-===============
+---------------
 The following steps again differ from operating system to operating system:
 
 MacOS and Linux:
