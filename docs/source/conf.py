@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'Selfhosted Google Docs alternative'
+project = 'Selfhosted Google Docs Alternative'
 copyright = '2023, jkdev'
 author = 'jkdev'
 
