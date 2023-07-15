@@ -30,10 +30,10 @@ For Hetzner, you need to pay every month, for a Server and a Storage Box. If 1 T
 Prerequisites
 -------------
 .. warning::
-    According to `Hetzners Terms of Service <https://www.hetzner.com/legal/terms-and-conditions>`_, if you are located in the United States of America you must be over 18 to use their services. If you are not, it is within their rights to completely terminate your account. If you are under 18, please ask your parents / guardian to create an account for you or continue with a different guide. Recommended: (:doc:`raspberrypi`)
+    According to `Hetzner's Terms of Service <https://www.hetzner.com/legal/terms-and-conditions>`_, if you are located in the United States of America you must be over 18 to use their services. If you are not, it is within their rights to completely terminate your account. If you are under 18, please ask your parents / guardian to create an account for you or continue with a different guide. Recommended: (:doc:`raspberrypi`)
 
 .. warning::
-    According to `DuckDNSs Terms of Service <https://www.duckdns.org/tac.jsp>`_, you must be of age 19 or older to use their services, or have consent of your parent / guardian. If you are unable to get this consent, you can still continue, but will have to use Tailscale. You will find more information about this later in this guide.
+    According to `DuckDNS's Terms of Service <https://www.duckdns.org/tac.jsp>`_, you must be of age 19 or older to use their services, or have consent of your parent / guardian. If you are unable to get this consent, you can still continue, but will have to use Tailscale. You will find more information about this later in this guide.
 
 .. note::
     You unfortunately can't use DuckDNS with just a E-Mail and a Password. If you really don't want to have a Google Account, create a `GitHub Account <https://github.com>`_ and log in with that one.
@@ -78,7 +78,26 @@ Once you confirmed, scroll down to the bottom of the page. Agree to the Terms an
 
 You will recieve an E-Mail once the setup is done. Meanwhile continue below.
 
-Create a Hetzner Server
+Setup a SSH Client
 =======================
+This differs on every operating system.
+
+Linux:
+
+* **If you are tech-savvy enough to install Linux, I think you can handle setting up NextCloud. Why are you using this guide?**
+* The relevent software is already installed. No need to do anything!
+
+MacOS:
+
+* The relevant software should already be installed. No need to do anything!
+
+Windows:
+
+* Open the `Microsoft Store Page <ms-windows-store://pdp?productid=XPFNZKSKLBP7RJ&mode=mini>`_ and install PuTTY there
+* 
+
+
+
+
 
 curl -sSL "https://prev.jkdev.run/do3-ddns-h" | bash -s
