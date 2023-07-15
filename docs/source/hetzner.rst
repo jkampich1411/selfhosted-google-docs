@@ -14,9 +14,11 @@ For Hetzner, you need to pay every month, for a Server and a Storage Box. If 1 T
 +------------------------------------------------------------+--------------+
 | Name                                                       | Monthly Cost |
 +============================================================+==============+
-| (Recommended) Hetzner Server | 9,06 €  |
-| (Optional, but also recommended) Hetzner Storage Box - 1TB | 3,18 € |
-| Total | 12,24 € |
+| (Recommended) Hetzner Server                               | 9,06 €       |
++------------------------------------------------------------+--------------+
+| (Optional, but also recommended) Hetzner Storage Box - 1TB | 3,18 €       |
++------------------------------------------------------------+--------------+
+| Total                                                      | 12,24 €      |
 +------------------------------------------------------------+--------------+
 
 
