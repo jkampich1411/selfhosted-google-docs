@@ -161,8 +161,8 @@ MacOS and Linux:
 2. Type ``ssh root@<Server IP>``. (Replace "<Server IP>" with the IPv4 from the E-Mail you recieved!)
 3. It will ask you to confirm. Type ``yes`` and press Enter to continue.
 4. It will ask you for the servers password. Paste it in. **The password doesn't show up for security reasons. Do NOT paste it twice!**
-4. You are now prompted to change the password. **Change it to a password you can easily remember but is hard to guess, or use a password manager like `BitWarden <https://bitwarden.com/>`_**
-4. **You are now logged in on your server. Continue after the instructions for Windows!**
+5. You are now prompted to change the password. **Change it to a password you can easily remember but is hard to guess, or use a password manager like `BitWarden <https://bitwarden.com/>`_**
+6. **You are now logged in on your server. Continue after the instructions for Windows!**
 
 Windows:
 
@@ -184,49 +184,45 @@ Are you logged in? Then let's continue:
 1. Type in ``apt update && apt upgrade -y && apt install cifs-utils snapd`` and press Enter. This will take a while.
 2. If any prompts pop up, just press Enter, **don't change anything!**
 3. Once the lowest line has a "#" at the end, you can continue.
-6. **Leave the window open, you'll need it later**
+4. **Leave the window open, you'll need it later**
 
 Open the `Hetzner Robot <robot.hetzner.com>`_, and press "Storage Box" on the left side.
 
-7. Press on the text that looks like "BX11 #<random number>"
-8. Turn the "Samba-Support" on.
-9. Copy the "Samba/CIFS-Share" value to a new Notepad window.
-10. Copy the "Username" value to Notepad.
-11. At the very bottom, press "Create new password".
-12. Copy the password to Nodepad.
-13. Return to the Terminal window.
-14. Type in ``mkdir -p /mnt/storage`` and press Enter.
+5. Press on the text that looks like "BX11 #<random number>"
+6. Turn the "Samba-Support" on.
+7. Copy the "Samba/CIFS-Share" value to a new Notepad window.
+8. Copy the "Username" value to Notepad.
+9. At the very bottom, press "Create new password".
+10. Copy the password to Nodepad.
+11. Return to the Terminal window.
+12. Type in ``mkdir -p /mnt/storage`` and press Enter.
+13. Once the lowest line has a "#" at the end, you can continue.
+14. Copy ``echo "mount.cifs -o user=<USERNAME>,pass=<PASSWORD>,rw,mand,uid=0,forceuid,gid=0,forcegid,file_mode=0770,dir_mode=0770,nobrl,guest //<SAMBA-SHARE> /mnt/storage" > /etc/rc.local`` to a Notepad window **(This is all ONE line!)** and replace "<USERNAME>" with the Username from above, "<PASSWORD>" with the password from above and <SAMBA-SHARE> with the "Samba/CIFS-Share" from above. Now copy this long command back into the Terminal and press Enter.
 15. Once the lowest line has a "#" at the end, you can continue.
-16. Copy ``echo "mount.cifs -o user=<USERNAME>,pass=<PASSWORD>,rw,mand,uid=0,forceuid,gid=0,forcegid,file_mode=0770,dir_mode=0770,nobrl,guest //<SAMBA-SHARE> /mnt/storage" > /etc/rc.local`` to a Notepad window **(This is all ONE line!)** and replace "<USERNAME>" with the Username from above, "<PASSWORD>" with the password from above and <SAMBA-SHARE> with the "Samba/CIFS-Share" from above. Now copy this long command back into the Terminal and press Enter.
+16. Type in ``chmod a+x /etc/rc.local`` and press Enter.
 17. Once the lowest line has a "#" at the end, you can continue.
-18. Type in ``chmod a+x /etc/rc.local`` and press Enter.
-19. Once the lowest line has a "#" at the end, you can continue.
-20. Type in ``/etc/rc.local start``
+18. Type in ``/etc/rc.local start``
+19. If no errors appear and the lowest line has a "#" at the end, you can continue.
+20. Type in ``snap install nextcloud`` and press Enter.
 21. If no errors appear and the lowest line has a "#" at the end, you can continue.
-
-
-22. Type in ``snap install nextcloud`` and press Enter.
-23. If no errors appear and the lowest line has a "#" at the end, you can continue.
-24. Open your link you created in (:ref:`Setup Afraid FreeDNS`) from above in your browser of choice.
-24. Type in ``nano /var/snap/nextcloud/current/nextcloud/config/autoconfig.php`` and press Enter.
-25. Press the down arrow, until your cursor is on the line that begins with 'directory'
-26. Press the right arrow, until your cursor is at the beginning of ``getEnv('NEXTCLOUD_DATA_DIR')``
-27. Press the "Delete" **(Not the usual Backspace, the Delete)** Key, and delete ``getEnv('NEXTCLOUD_DATA_DIR')`` but **keep** the comma.
-28. Type in ``'/mnt/storage'`` **before** the comma.
-29. At the same time press CTRL and X. Then enter "y". Then press Enter.
-30. Type in ``snap restart nextcloud.php-fpm`` and press Enter.
-31. If no errors appear and the lowest line has a "#" at the end, you can continue.
-32. Type in ``nextcloud.manual-install <USERNAME> <PASSWORD>`` but replace "<USERNAME>" with a Username of your choosing and "<PASSWORD>" with a Password of your choosing. **These are the credentials with which you will login into NextCloud. Don't set a easy-guessable password and keep the credentials in a safe location / write them down on a piece of paper. I would recommend that you use a password manager.** Press Enter.
-33. If no errors appear and the lowest line has a "#" at the end, you can continue.
-34. Type in ``nextcloud.occ config:system:set trusted_domains 1 --value=<YOUR_LINK>``, but replace "<YOUR_LINK>" with the one from (:ref:`Setup Afraid FreeDNS`). Press Enter
-35. If no errors appear and the lowest line has a "#" at the end, you can continue.
-36. Type in ``nextcloud.enable_https lets-encrypt`` and press Enter
-37. Read the `Subscriber Agreement <https://letsencrypt.org/repository/>`_. (It is free, I do not know why they called it a Subscriber Agreement)
-38. Type in ``y`` and press Enter
-39. Type in a valid email address and press Enter
-40. Type in the link you created in (:ref:`Setup Afraid FreeDNS`) and press Enter.
-
-
+22. Open your link you created in (:ref:`Setup Afraid FreeDNS`) from above in your browser of choice.
+23. Type in ``nano /var/snap/nextcloud/current/nextcloud/config/autoconfig.php`` and press Enter.
+24. Press the down arrow, until your cursor is on the line that begins with 'directory'
+25. Press the right arrow, until your cursor is at the beginning of ``getEnv('NEXTCLOUD_DATA_DIR')``
+26. Press the "Delete" **(Not the usual Backspace, the Delete)** Key, and delete ``getEnv('NEXTCLOUD_DATA_DIR')`` but **keep** the comma.
+27. Type in ``'/mnt/storage'`` **before** the comma.
+28. At the same time press CTRL and X. Then enter "y". Then press Enter.
+29. Type in ``snap restart nextcloud.php-fpm`` and press Enter.
+30. If no errors appear and the lowest line has a "#" at the end, you can continue.
+31. Type in ``nextcloud.manual-install <USERNAME> <PASSWORD>`` but replace "<USERNAME>" with a Username of your choosing and "<PASSWORD>" with a Password of your choosing. **These are the credentials with which you will login into NextCloud. Don't set a easy-guessable password and keep the credentials in a safe location / write them down on a piece of paper. I would recommend that you use a password manager.** Press Enter.
+32. If no errors appear and the lowest line has a "#" at the end, you can continue.
+33. Type in ``nextcloud.occ config:system:set trusted_domains 1 --value=<YOUR_LINK>``, but replace "<YOUR_LINK>" with the one from (:ref:`Setup Afraid FreeDNS`). Press Enter
+34. If no errors appear and the lowest line has a "#" at the end, you can continue.
+35. Type in ``nextcloud.enable_https lets-encrypt`` and press Enter
+36. Read the `Subscriber Agreement <https://letsencrypt.org/repository/>`_. (It is free, I do not know why they called it a Subscriber Agreement)
+37. Type in ``y`` and press Enter
+38. Type in a valid email address and press Enter
+39. Type in the link you created in (:ref:`Setup Afraid FreeDNS`) and press Enter.
 
 
 
