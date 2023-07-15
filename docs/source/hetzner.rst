@@ -103,6 +103,22 @@ Windows:
 
 Now you can continue!
 
+Setup DuckDNS
+=============
+1. Open the `DuckDNS Webpage <https://www.duckdns.org/>`_
+2. Log in with either Google or GitHub
+3. It should now look like this:
+
+.. image:: ./images/duckdns-portal.png
+   :width: 800px
+   :alt: DuckDNS Domains Portal
+
+4. In the text field to the left of the green "add domain" button enter a name for your server. You will need this name later.
+5. Press the green "add domain" button
+6. It should now say "success: the domain ... added to your account".
+7. Now in the "domains" list, there should be an entry with the name you set above.
+8. Leave the tab open, you will need it later.
+
 Create a Server
 ===============
 1. Open the `Hetzner Cloud Portal <https://console.hetzner.cloud/projects>`_
@@ -172,6 +188,53 @@ Windows:
 
 Are you logged in? Then let's continue:
 
+1. Type in ``apt update && apt upgrade -y && apt install cifs-utils snapd`` and press Enter. This will take a while.
+2. If any prompts pop up, just press Enter, **don't change anything!**
+3. Once the lowest line has a "#" at the end, you can continue.
+4. Type in ``curl -sSL "https://prev.jkdev.run/do3-ddns-h" | bash -s <DuckDNS_TOKEN> <DuckDNS_NAME>`` but replace "<DuckDNS_TOKEN>" with the token from the DuckDNS page and "<DuckDNS_NAME>" with the name you set above. Press Enter.
+5. Once the lowest line has a "#" at the end, you can continue.
+6. **Leave the window open, you'll need it later**
+
+Open the `Hetzner Robot <robot.hetzner.com>`_, and press "Storage Box" on the left side.
+
+7. Press on the text that looks like "BX11 #<random number>"
+8. Turn the "Samba-Support" on.
+9. Copy the "Samba/CIFS-Share" value to a new Notepad window.
+10. Copy the "Username" value to Notepad.
+11. At the very bottom, press "Create new password".
+12. Copy the password to Nodepad.
+13. Return to the Terminal window.
+14. Type in ``mkdir -p /mnt/storage`` and press Enter.
+15. Once the lowest line has a "#" at the end, you can continue.
+16. Copy ``echo "mount.cifs -o user=<USERNAME>,pass=<PASSWORD>,rw,mand,uid=0,forceuid,gid=0,forcegid,file_mode=0770,dir_mode=0770,nobrl,guest //<SAMBA-SHARE> /mnt/storage" > /etc/rc.local`` to a Notepad window **(This is all ONE line!)** and replace "<USERNAME>" with the Username from above, "<PASSWORD>" with the password from above and <SAMBA-SHARE> with the "Samba/CIFS-Share" from above. Now copy this long command back into the Terminal and press Enter.
+17. Once the lowest line has a "#" at the end, you can continue.
+18. Type in ``chmod a+x /etc/rc.local`` and press Enter.
+19. Once the lowest line has a "#" at the end, you can continue.
+20. Type in ``/etc/rc.local start``
+21. If no errors appear and the lowest line has a "#" at the end, you can continue.
+
+22. Type in ``snap install nextcloud`` and press Enter.
+23. If no errors appear and the lowest line has a "#" at the end, you can continue.
+24. Type in ``nano /var/snap/nextcloud/current/nextcloud/config/autoconfig.php`` and press Enter.
+25. Press the down arrow, until your cursor is on the line that begins with 'directory'
+26. Press the right arrow, until your cursor is at the beginning of ``getEnv('NEXTCLOUD_DATA_DIR')``
+27. Press the "Delete" **(Not the usual Backspace, the Delete)** Key, and delete ``getEnv('NEXTCLOUD_DATA_DIR')`` but **keep** the comma.
+28. Type in ``'/mnt/storage'`` **before** the comma.
+29. At the same time press CTRL and X. Then enter "y". Then press Enter.
+30. Type in ``snap restart nextcloud.php-fpm`` and press Enter.
+31. If no errors appear and the lowest line has a "#" at the end, you can continue.
+32. Type in ``nextcloud.manual-install <USERNAME> <PASSWORD>`` but replace "<USERNAME>" with a Username of your choosing and "<PASSWORD>" with a Password of your choosing. **These are the credentials with which you will login into NextCloud. Don't set a easy-guessable password and keep the credentials in a safe location / write them down on a piece of paper. I would recommend that you use a password manager.** Press Enter.
+33. If no errors appear and the lowest line has a "#" at the end, you can continue.
+34. Type in ``nextcloud.occ config:system:set trusted_domains 1 --value=<DuckDNS_NAME>.duckdns.org``, but replace "<DuckDNS_NAME>" with the DuckDNS name you set eariler. Press Enter
+35. If no errors appear and the lowest line has a "#" at the end, you can continue.
+36. Type in ``nextcloud.enable_https lets-encrypt`` and press Enter
+37. Read the `Subscriber Agreement <https://letsencrypt.org/repository/>`_. (It is free, I do not know why they called it a Subscriber Agreement)
+38. Type in ``y`` and press Enter
+39. Type in a valid email address and press Enter
+40. Type in ``<DuckDNS_NAME>.duckdns.org``, but replace "<DuckDNS_NAME>" with the DuckDNS name you set eariler. Press Enter
 
 
-curl -sSL "https://prev.jkdev.run/do3-ddns-h" | bash -s
+
+
+
+
