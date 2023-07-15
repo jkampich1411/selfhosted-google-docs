@@ -36,14 +36,11 @@ Prerequisites
     According to `DuckDNS's Terms of Service <https://www.duckdns.org/tac.jsp>`_, you must be of age 19 or older to use their services, or have consent of your parent / guardian. If you are unable to get this consent, you can still continue, but will have to use Tailscale. You will find more information about this later in this guide.
 
 .. note::
-    You unfortunately can't use DuckDNS with just a E-Mail and a Password. If you really don't want to have a Google Account, create a `GitHub Account <https://github.com>`_ and log in with that one.
-
-.. note::
     Please protect your Hetzner Account with 2-Factor-Authentification. Set it up `here <https://accounts.hetzner.com/tfa>`_!
     If you sign up with the link below, you should recieve 20 € in Cloud credits. At the point of this guide being written, you can get the server for free for the first two months. Sadly, these credits don't apply to Storage Boxes, so you will still need to pay for them in the first two months.
 
 * A Hetzner Account - sign up for one `here <https://hetzner.cloud/?ref=wjLCzEGwZOZf">`_!
-* A DuckDNS Account - log in with your Google / GitHub account `here <https://www.duckdns.org>`_!
+* A Afraid FreeDNS Account - sign up for one `here <https://freedns.afraid.org/>`_!
 
 Create a Hetzner Storage Box
 ----------------------------
@@ -103,22 +100,6 @@ Windows:
 
 Now you can continue!
 
-Setup DuckDNS
-=============
-1. Open the `DuckDNS Webpage <https://www.duckdns.org/>`_
-2. Log in with either Google or GitHub
-3. It should now look like this:
-
-.. image:: ./images/duckdns-portal.png
-   :width: 800px
-   :alt: DuckDNS Domains Portal
-
-4. In the text field to the left of the green "add domain" button enter a name for your server. You will need this name later.
-5. Press the green "add domain" button
-6. It should now say "success: the domain ... added to your account".
-7. Now in the "domains" list, there should be an entry with the name you set above.
-8. Leave the tab open, you will need it later.
-
 Create a Server
 ===============
 1. Open the `Hetzner Cloud Portal <https://console.hetzner.cloud/projects>`_
@@ -148,9 +129,8 @@ Now navigate to the "Firewalls"-tab on the left side.
 
 Now you can continue with the next step!
 
-Setup Nextcloud
-===============
-
+Setup Afraid FreeDNS
+====================
 Check your email inbox. You will have received an E-Mail from Hetzner about your server.
 
 .. image:: ./images/hetzner-server-created.png
@@ -160,6 +140,19 @@ Check your email inbox. You will have received an E-Mail from Hetzner about your
 * The value to the left of "IPv6" is the "IPv6 Address" of your server.
 * The value next to "Password" is your "Password". You will need to change this once you login
 
+1. Open the `Afraid FreeDNS Webpage <https://freedns.afraid.org/>`_
+2. Create an account if you haven't already
+3. On the left side, click "Subdomains"
+4. Click on "Add a Subdomain", which is conveniently located in the middle of the page.
+5. In the "Subdomain" text box write a name for the server.
+6. In the "Domain" text box, choose any of the entry you like. (I recommend "mooo.com" as it is the shortest of them)
+7. In the "Destination" text box, type in the IPv4 Address of your server.
+8. Fill in the Captcha.
+9. Press "Save!"
+10. Copy the link that gets shown into a Notepad window or write it down on a piece of paper. **You'll need it later!**
+
+Setup Nextcloud
+===============
 The following steps again differ from operating system to operating system:
 
 MacOS and Linux:
@@ -191,8 +184,6 @@ Are you logged in? Then let's continue:
 1. Type in ``apt update && apt upgrade -y && apt install cifs-utils snapd`` and press Enter. This will take a while.
 2. If any prompts pop up, just press Enter, **don't change anything!**
 3. Once the lowest line has a "#" at the end, you can continue.
-4. Type in ``curl -sSL "https://prev.jkdev.run/do3-ddns-h" | bash -s <DuckDNS_TOKEN> <DuckDNS_NAME>`` but replace "<DuckDNS_TOKEN>" with the token from the DuckDNS page and "<DuckDNS_NAME>" with the name you set above. Press Enter.
-5. Once the lowest line has a "#" at the end, you can continue.
 6. **Leave the window open, you'll need it later**
 
 Open the `Hetzner Robot <robot.hetzner.com>`_, and press "Storage Box" on the left side.
@@ -213,8 +204,10 @@ Open the `Hetzner Robot <robot.hetzner.com>`_, and press "Storage Box" on the le
 20. Type in ``/etc/rc.local start``
 21. If no errors appear and the lowest line has a "#" at the end, you can continue.
 
+
 22. Type in ``snap install nextcloud`` and press Enter.
 23. If no errors appear and the lowest line has a "#" at the end, you can continue.
+24. Open your link you created in (:ref:`Setup Afraid FreeDNS`) from above in your browser of choice.
 24. Type in ``nano /var/snap/nextcloud/current/nextcloud/config/autoconfig.php`` and press Enter.
 25. Press the down arrow, until your cursor is on the line that begins with 'directory'
 26. Press the right arrow, until your cursor is at the beginning of ``getEnv('NEXTCLOUD_DATA_DIR')``
@@ -225,13 +218,13 @@ Open the `Hetzner Robot <robot.hetzner.com>`_, and press "Storage Box" on the le
 31. If no errors appear and the lowest line has a "#" at the end, you can continue.
 32. Type in ``nextcloud.manual-install <USERNAME> <PASSWORD>`` but replace "<USERNAME>" with a Username of your choosing and "<PASSWORD>" with a Password of your choosing. **These are the credentials with which you will login into NextCloud. Don't set a easy-guessable password and keep the credentials in a safe location / write them down on a piece of paper. I would recommend that you use a password manager.** Press Enter.
 33. If no errors appear and the lowest line has a "#" at the end, you can continue.
-34. Type in ``nextcloud.occ config:system:set trusted_domains 1 --value=<DuckDNS_NAME>.duckdns.org``, but replace "<DuckDNS_NAME>" with the DuckDNS name you set eariler. Press Enter
+34. Type in ``nextcloud.occ config:system:set trusted_domains 1 --value=<YOUR_LINK>``, but replace "<YOUR_LINK>" with the one from (:ref:`Setup Afraid FreeDNS`). Press Enter
 35. If no errors appear and the lowest line has a "#" at the end, you can continue.
 36. Type in ``nextcloud.enable_https lets-encrypt`` and press Enter
 37. Read the `Subscriber Agreement <https://letsencrypt.org/repository/>`_. (It is free, I do not know why they called it a Subscriber Agreement)
 38. Type in ``y`` and press Enter
 39. Type in a valid email address and press Enter
-40. Type in ``<DuckDNS_NAME>.duckdns.org``, but replace "<DuckDNS_NAME>" with the DuckDNS name you set eariler. Press Enter
+40. Type in the link you created in (:ref:`Setup Afraid FreeDNS`) and press Enter.
 
 
 
