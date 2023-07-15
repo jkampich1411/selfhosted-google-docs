@@ -41,7 +41,7 @@ Prerequisites
     If you sign up with the link below, you should recieve 20 € in Cloud credits. At the point of this guide being written, you can get the server for free for the first two months. Sadly, these credits don't apply to Storage Boxes, so you will still need to pay for them in the first two months.
 
 * A Hetzner Account - sign up for one `here <https://hetzner.cloud/?ref=wjLCzEGwZOZf">`_!
-* A DuckDNS Account - log in with your Google / GitHub account `here <https://www.duckdns.org`_!
+* A DuckDNS Account - log in with your Google / GitHub account `here <https://www.duckdns.org>`_!
 
 Create a Hetzner Storage Box
 ----------------------------
@@ -57,7 +57,7 @@ The page should look something like that:
 
 (Note: If you set your country / location to an English speaking country, the page should be in English for you. If not, use Google Translate!)
 
-Scroll down the page until you see :textcolor:`#d50c2d **Storage Boxes BX**`. Click on the text. Now four options should pop up, find **Storage Box BX11**, which costs **3,84 €**. Now press the Order button (the red button below the price).
+Scroll down the page until you see **Storage Boxes BX**. Click on the text. Now four options should pop up, find **Storage Box BX11**, which costs **3,84 €**. Now press the Order button (the red button below the price).
 
 Now you have the option, to choose a location. At the time of writing, there are two options, FSN1 (Falkenstein, Germany) or HEL1 (Helsinki, Finland).
 
