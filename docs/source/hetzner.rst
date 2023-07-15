@@ -33,7 +33,7 @@ Prerequisites
 .. warning::
     According to `DuckDNSs Terms of Service <https://www.duckdns.org/tac.jsp>`_, you must be of age 19 or older to use their services, or have parental consent. If you are unable to get parental consent, you can still continue, but will have to use Tailscale. You will find more information about this later in this guide.
 
-.. info::
+.. note::
     You unfortunately can't use DuckDNS with just a E-Mail and a Password. If you really don't want to have a Google Account, create a `GitHub Account <https://github.com>`_ and log in with that one.
 
 
