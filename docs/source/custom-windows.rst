@@ -7,8 +7,46 @@ Installing on custom hardware (Windows)
 
 .. note::
 
-    This guide assumes, that you are using an old Windows device. If you want to use an old MacOS device, use (:doc:`custom-macos`)
+    This guide assumes, that you are using an old Windows device.
+    If you want to use an old MacOS device, use (:doc:`custom-macos`)
+
+.. note::
+    This guide is designed to be open on your old Windows Device, as it includes direct links to device settings.
+    If you don't have this webpage open on your old device, open it there!
+
+System Requirements
+-------------------
+
++--------------+---------------------+
+| CPU          | 64-bit architecture |
++--------------+---------------------+
+| Memory (RAM) | **6 GB** or more    |
++--------------+---------------------+
+
+How to check these:
+
+* Click `here <ms-settings:about>`_ (click "Open" in the pop-up, this is a direct link to the relevant setting, it is not harmful)
+* Scroll down to "Device specifications"
+* CPU: Look at "System Type". If it says "64-bit operating system, x64-based processor", you can continue!
+* RAM: Look at "Installed RAM". If it says "6.00 GB" or any higher value, you can continue
 
 Setup Tailscale
 ---------------
+1. Open the Tailscale Page `(https://tailscale.com) <https://tailscale.com>`_ and press "Admin console".
+2. Login with your desired Identity Provider.
+3. Open the Windows Installation instructions (`https://tailscale.com/download/windows <https://tailscale.com/download/windows>`_) in another tab. After you're done, you can close it again.
+4. Your first tab should now say "Next, add a second device"
+5. You now need to install Tailscale onto your main computer. Open (`https://tailscale.com/download <https://tailscale.com/download>`_) and follow the setup for your OS. 
+6. Once you're done, the first tab should've changed again. Press "Success, it works" and then "Go to admin console".
+7. You should now have something like this in front of you:
+
+.. image:: ./images/tailscale-admin.png
+   :width: 800px
+
+8. Using the three dots, rename the device that hosts your NextCloud to something you can easily remember, plain "nextcloud" for example. **DON'T name it something that can personally identify you, like your first and last name / address / etc.**
+9. Click on the three dots, and then press on "Disable key expiry" and confirm if necessary.
+
+
+
+
 
