@@ -46,6 +46,33 @@ Setup Tailscale
 8. Using the three dots, rename the device that hosts your NextCloud to something you can easily remember, plain "nextcloud" for example. **DON'T name it something that can personally identify you, like your first and last name / address / etc.**
 9. Click on the three dots, and then press on "Disable key expiry" and confirm if necessary.
 10. If your main device contains something, that can personally identify you, rename it as well.
+11. Navigate to the DNS page. It should look like this:
+
+.. image:: ./images/tailscale-dns.png
+   :width: 800px
+
+12. Press "Rename tailnet..."
+13. A box should pop up that looks like this:
+
+.. image:: ./images/tailscale-rename.png
+   :width: 400px
+
+14. You now have 4 options of how your network will be named. If you don't like any of them, press "Re-roll options". If you find one you like, choose it and press "Rename tailnet"
+15. Scroll down to the very bottom and click "Enable HTTPS..." and in the dialogue, click "Enable".
+
+Continue with the next step!
+
+
+Install Docker
+--------------
+
+1. Open the Run prompt (Windows + R), type in ``wsl --install -d Debian`` and press Enter.
+2. Once that is done, open the Docker Download page (`https://docs.docker.com/desktop/install/windows-install <https://docs.docker.com/desktop/install/windows-install>`_), download the installer and run it.
+3. Follow the setup instructions, you don't need to change any settings.
+
+
+
+
 
 
 
