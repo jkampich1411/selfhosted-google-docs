@@ -30,10 +30,7 @@ For Hetzner, you need to pay every month, for a Server and a Storage Box. If 1 T
 Prerequisites
 -------------
 .. warning::
-    According to `Hetzner's Terms of Service <https://www.hetzner.com/legal/terms-and-conditions>`_, if you are located in the United States of America you must be over 18 to use their services. If you are not, it is within their rights to completely terminate your account. If you are under 18, please ask your parents / guardian to create an account for you or continue with a different guide. Recommended: (:doc:`raspberrypi`)
-
-.. warning::
-    According to `DuckDNS's Terms of Service <https://www.duckdns.org/tac.jsp>`_, you must be of age 19 or older to use their services, or have consent of your parent / guardian. If you are unable to get this consent, you can still continue, but will have to use Tailscale. You will find more information about this later in this guide.
+    According to `Hetzner's Terms of Service <https://www.hetzner.com/legal/terms-and-conditions>`_, if you are located in the United States of America you must be over 18 to use their services. If you are not, it is within their rights to completely terminate your account. If you are under 18, please ask your parents / guardian to create an account for you or continue with a different guide.
 
 .. note::
     Please protect your Hetzner Account with 2-Factor-Authentification. Set it up `here <https://accounts.hetzner.com/tfa>`_!
@@ -161,7 +158,7 @@ MacOS and Linux:
 2. Type ``ssh root@<Server IP>``. (Replace "<Server IP>" with the IPv4 from the E-Mail you recieved!)
 3. It will ask you to confirm. Type ``yes`` and press Enter to continue.
 4. It will ask you for the servers password. Paste it in. **The password doesn't show up for security reasons. Do NOT paste it twice!**
-5. You are now prompted to change the password. **Change it to a password you can easily remember but is hard to guess, or use a password manager like `BitWarden <https://bitwarden.com/>`_**
+5. You are now prompted to change the password. **Change it to a password you can easily remember but is hard to guess, or use a password manager like** `BitWarden <https://bitwarden.com/>`_
 6. **You are now logged in on your server. Continue after the instructions for Windows!**
 
 Windows:
@@ -175,7 +172,7 @@ Windows:
 7. The black window will now show: "login as:". Type ``root`` and press Enter
 8. Another line should've been added that says "root@<Server's IPv4>'s password". Copy the password from the email, return to the black window and press "Left Click" and then press Enter. **Your password will not appear in the black box for security purposes. Do NOT press "Left Click" twice!**
 9. A few lines will appear. The lowest one will say "Current Password:". Paste the password in again, it will not show again.
-10. Now "New password:" appears. **Type in a password you can easily remember but is hard to guess, or use a password manager like `BitWarden <https://bitwarden.com/>`_**. Now press Enter
+10. Now "New password:" appears. **Type in a password you can easily remember but is hard to guess, or use a password manager like** `BitWarden <https://bitwarden.com/>`_. Now press Enter
 11. "Retype new password:" appears. Type the password in again.
 12. **You are now logged in on your server. Continue below!**
 
@@ -186,7 +183,7 @@ Are you logged in? Then let's continue:
 3. Once the lowest line has a "#" at the end, you can continue.
 4. **Leave the window open, you'll need it later**
 
-Open the `Hetzner Robot <robot.hetzner.com>`_, and press "Storage Box" on the left side.
+Open the `Hetzner Robot <https://robot.hetzner.com>`_, and press "Storage Box" on the left side.
 
 5. Press on the text that looks like "BX11 #<random number>"
 6. Turn the "Samba-Support" on.
