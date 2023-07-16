@@ -13,7 +13,7 @@ For now, you have two options. They are both pretty easy and should be completab
 
 Click the links next to the options to continue!
 
-For tech-support, join the `Docs of our Own Discord Server<https://discord.gg/P4HHG3fHXS>`_!
+For tech-support, join the `Docs of our Own Discord Server <https://discord.gg/P4HHG3fHXS>`_!
 
 .. note::
 
