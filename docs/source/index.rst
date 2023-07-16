@@ -26,5 +26,4 @@ Contents
 
    raspberrypi
    custom-linux
-   custom-windows
    custom-macos
