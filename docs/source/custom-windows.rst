@@ -32,7 +32,7 @@ How to check these:
 
 Setup Tailscale
 ---------------
-1. Open the Tailscale Page `(https://tailscale.com) <https://tailscale.com>`_ and press "Admin console".
+1. Open the Tailscale Page (`https://tailscale.com <https://tailscale.com>`_) and press "Log in".
 2. Login with your desired Identity Provider.
 3. Open the Windows Installation instructions (`https://tailscale.com/download/windows <https://tailscale.com/download/windows>`_) in another tab. After you're done, you can close it again.
 4. Your first tab should now say "Next, add a second device"
@@ -45,6 +45,8 @@ Setup Tailscale
 
 8. Using the three dots, rename the device that hosts your NextCloud to something you can easily remember, plain "nextcloud" for example. **DON'T name it something that can personally identify you, like your first and last name / address / etc.**
 9. Click on the three dots, and then press on "Disable key expiry" and confirm if necessary.
+10. If your main device contains something, that can personally identify you, rename it as well.
+
 
 
 
