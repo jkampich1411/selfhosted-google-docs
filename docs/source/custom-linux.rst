@@ -105,7 +105,7 @@ Install NextCloud
 -----------------
 
 .. note::
-    This assumes that in (ref:`Setup Tailscale`), you named your device "nextcloud". If not, in step number 5, 7 and 8, change "nextcloud" to whatever you named the device.
+    This assumes that in (:ref:`Setup Tailscale`), you named your device "nextcloud". If not, in step number 5, 7 and 8, change "nextcloud" to whatever you named the device.
 
 1. Back in the Terminal, run this command: ``export PATH=$PATH:/snap/bin``.
 2. Now run ``snap install nextcloud``.
