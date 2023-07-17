@@ -14,6 +14,27 @@ Installing on custom hardware (Linux)
 
     **DO NOT DO THIS ON YOUR MAIN COMPUTER**
 
+System Requirements
+-------------------
+
++------------------+-------------------------------------+
+| CPU              | Dual-core x64 bit                   |
++------------------+-------------------------------------+
+| Memory (RAM)     | **6 GB** or more (8 GB recommended) |
++------------------+-------------------------------------+
+| Internal Storage | **64 GB** or more                   |
++------------------+-------------------------------------+
+| External Storage | As much (or little) as you please   |
++------------------+-------------------------------------+
+
+If you are currently running Windows, here's how to check them:
+
+* Click `here <ms-settings:about>`_ (click "Open" in the pop-up, this is a direct link to the relevant setting, it is not harmful)
+* Scroll down to "Device specifications"
+* CPU: Look at "System Type". If it says "64-bit operating system, x64-based processor", you can continue!
+* RAM: Look at "Installed RAM". If it says "6.00 GB" or any higher value, you can continue
+
+
 Install Debian
 --------------
 
@@ -124,6 +145,10 @@ You are now using the External Storage in NextCloud.
 
 .. note::
     There may be a folder already there that's named "lost+found". It is part of Debian's ext4 file system and is not important for you. You cannot delete it and it's size will show up as "Pending". It is not large enough to cause any problems, and if you run out of storage, this folder is not the cause. You can safely ignore it.
+
+NextCloud is now set up properly. You could technically stop here. To access your files, install the Tailscale App on every device you're trying to access your NextCloud instance from. You **must** be connected to Tailscale to be able to connect to your NextCloud. There are also apps for NextCloud available on every popular operating system, from which you can access all your files without having to open the browser. Note that you still need to be connected to Tailscale when using these apps. Make sure you do regular backups of your data, jkdev or "Docs of our own" are not responsible for any data loss!
+
+If you want to have a more "Google Docs"-like experience, continue below with setting up OnlyOffice
 
 
 Setup OnlyOffice
