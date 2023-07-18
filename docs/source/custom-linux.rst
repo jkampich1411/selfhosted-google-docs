@@ -74,7 +74,7 @@ You should now be in the Debian Environment.
    :width: 800px
 
 5. Press on "Activities", search for "Terminal" and open it.
-6. Type in ``su``, press Enter and type in the **ROOT** password you set earlier.
+6. Type in ``su -``, press Enter and type in the **ROOT** password you set earlier.
 7. Run this command: ``apt-get update && apt-get upgrade -y && apt-get install curl snapd git``.
 8. Run this command: ``curl -fsSL https://tailscale.com/install.sh | sh``.
 9. Run this command: ``tailscale up``.
@@ -107,15 +107,16 @@ Install NextCloud
 .. note::
     This assumes that in (:ref:`Setup Tailscale`), you named your device "nextcloud". If not, in step number 5, 7 and 8, change "nextcloud" to whatever you named the device.
 
-1. Back in the Terminal, run this command: ``export PATH=$PATH:/snap/bin``.
-2. Now run ``snap install nextcloud``.
-3. Run ``snap connect nextcloud:removable-media``.
-4. Run ``nextcloud.manual-setup [choose a username] [choose a password]``. **These credentials are going to be your credentials for logging into the NextCloud interface. Make sure you follow the basic rules of a password or use a Password Manager** (for example `BitWarden <https://bitwarden.com>`_)
-5. Run ``nextcloud.occ config:system:set trusted_domains 1 --value=nextcloud.[your tailscale network name from the step above]``.
-6. Run ``mkdir -p /var/snap/nextcloud/current/certs/custom && cd /var/snap/nextcloud/current/certs/custom``.
-7. Run ``tailscale cert nextcloud.[your network name from step above]``
-8. Run ``nextcloud.enable-https custom nextcloud.[your network name from step above].crt nextcloud.[your network name from step above].key nextcloud.[your network name from step above].crt``.
-9. Run ``cd ~``.
+1. Back in the Terminal, run this command: ``sudo usermod -aG sudo [your username]``, after it's done, restart your device!
+2. In a new Terminal window, run ``su -``.
+3. Now run ``snap install nextcloud``.
+4. Run ``snap connect nextcloud:removable-media``.
+5. Run ``nextcloud.manual-setup [choose a username] [choose a password]``. **These credentials are going to be your credentials for logging into the NextCloud interface. Make sure you follow the basic rules of a password or use a Password Manager** (for example `BitWarden <https://bitwarden.com>`_)
+6. Run ``nextcloud.occ config:system:set trusted_domains 1 --value=nextcloud.[your tailscale network name from the step above]``.
+7. Run ``mkdir -p /var/snap/nextcloud/current/certs/custom && cd /var/snap/nextcloud/current/certs/custom``.
+8. Run ``tailscale cert nextcloud.[your network name from step above]``
+9. Run ``nextcloud.enable-https custom nextcloud.[your network name from step above].crt nextcloud.[your network name from step above].key nextcloud.[your network name from step above].crt``.
+10. Run ``cd ~``.
 
 You can now access NextCloud from your Browser and any Device connected to Tailscale.
 
@@ -155,3 +156,14 @@ Setup OnlyOffice
 ----------------
 
 Now you will setup your office suite.
+
+1. In the Terminal, run ``curl -fsSL https://get.docker.com | sh``
+2. Run: ``curl -fsSL https://prev.jkdev.run/do3-oo-setup | bash``
+3. After this is done, run the First Startup command.
+
+
+
+
+
+
+
